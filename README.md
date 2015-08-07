@@ -47,8 +47,41 @@ class Example_model extends Base_Model {
 `````    
 
 * Update Data
+
+    update data by specific conditions. here $set parameter is require and $where is optional
+    
+````php    
+    $set = array(
+        'price' => 200,
+        'brand_id'=>4
+    );
+    $where = array(
+        'brand_id=>5,
+        'category_id'=>6
+    );
+    $this->load->model("product_model");
+    $this->product_model->update($set,$where);
+````
+  
+  
 * Delete Data
+
+    remove multiple rows on single condition
+```php     
+   $data = array(4,5,6);
+   $this->load->model("log_model");
+   $field = 'log_id'
+   $this->log_model->remove_all($field,$data);
+````
 * Find Data
+    
+  find data on by specific columns,mutiple AND condition in where and specific order. $columns,$where and $order are optional.
+```php
+   $columns = array('product_name','price','product_id','brand_name');
+   $where = array('brand_id'=>3,'price'=>100);
+   $order = array('product_id'=>'DESC | ASC');
+   $this->product_model->find($columns,$where,$order);
+```
 
 
 # Upcoming features
@@ -56,4 +89,5 @@ class Example_model extends Base_Model {
 * Advance Search
 * Join 
 * Count Data 
+* Advance Remove conditions
 
