@@ -113,12 +113,16 @@ class Base_Model extends CI_Model {
             }           
             $condition = $keyword." ".$condition;
         }
+        if($order!=null) {
+            list($key, $value) = each($order);
+            $order ="ORDER BY ".$key." ".$value;
+        }
         if($columns == null) {
             $columns = '*';
         } else {
             $columns = implode(",",$columns);           
         }
-        $query = "SELECT ".$columns." FROM ".$this->table." ".$condition;
+        $query = "SELECT ".$columns." FROM ".$this->table." ".$condition." ".$order;
         $fetch_data = $this->db->query($query);
         $results = $fetch_data->result_array();
         return $results;
