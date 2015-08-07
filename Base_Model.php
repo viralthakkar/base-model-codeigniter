@@ -96,7 +96,7 @@ class Base_Model extends CI_Model {
         return;     
     }
 
-    public function find($columns = null,$where=null,$order="null") {
+    public function find($columns = null,$where=null,$order=null) {
         if($where != null) {
             $i = 0;
             $content = '';
