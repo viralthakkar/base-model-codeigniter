@@ -20,13 +20,32 @@ class Example_model extends Base_Model {
 
 * Insert single Data
 
-    Call the insert method by following way
+    Call the insert method by following way. Instead of attribute model you can call any model
 ```php
+    $this->load->model("attribute_model");
     $this->attribute_model->insert(array('name'=>'Size','attr_values'=>'S,L,XL','is_required'=>1));
 `````
 
-
 * Insert Multiple Data
+
+    insert multiple records in single query 
+```php
+    $this->load->model("product_model");
+    $data = array(
+        0=>array(
+            'product_name' =>'Moto G',
+            'category_id' => 2,
+            'brand_name'=>'motorola'
+        ),
+        1=>array(
+            'product_name' =>'Nexus 5',
+            'category_id' => 4,
+            'brand_name'=>'google'
+        )        
+    );
+    $this->product_model->insert_multiple($data);
+`````    
+
 * Update Data
 * Delete Data
 * Find Data
