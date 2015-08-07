@@ -18,9 +18,22 @@ class Example_model extends Base_Model {
 
 # Methods Description
 
+* Insert single Data
+
+    Call the insert method by following way
+```php
+    $this->attribute_model->insert(array('name'=>'Size','attr_values'=>'S,L,XL','is_required'=>1));
+`````
+
+
+* Insert Multiple Data
+* Update Data
+* Delete Data
+* Find Data
+
+
 # Upcoming features
 
-* Multiple Update
 * Advance Search
 * Join 
 * Count Data 
