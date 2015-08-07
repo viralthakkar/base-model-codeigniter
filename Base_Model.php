@@ -40,7 +40,7 @@ class Base_Model extends CI_Model {
         return $this->db->insert_id();
     }
 
-    public function insert_multiple($table,$data) {
+    public function insert_multiple($data) {
         foreach($data as $insert) {
             $i = 0;
             $columns = '';
@@ -62,7 +62,7 @@ class Base_Model extends CI_Model {
     }
 
     
-    public function update($table,$set,$where=null) {
+    public function update($set,$where=null) {
         $i = 0;
         $set_data = '';
         $condition = '';
@@ -96,7 +96,7 @@ class Base_Model extends CI_Model {
         return;     
     }
 
-    public function find($table,$columns = null,$where=null,$order="null") {
+    public function find($columns = null,$where=null,$order="null") {
         if($where != null) {
             $i = 0;
             $content = '';
@@ -124,7 +124,7 @@ class Base_Model extends CI_Model {
         return $results;
     }
 
-    public function remove_all($table,$field_name,$data) {
+    public function remove_all($field_name,$data) {
         $data = implode(",",$data);
         $query = "DELETE FROM ".$this->table." WHERE ".$field_name." IN (".$data.")";
         $this->db->query($query);
